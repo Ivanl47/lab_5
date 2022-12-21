@@ -1,61 +1,48 @@
-﻿/*Створити клас Fruit (name, size, color, taste(SWEET, SOUR, NEUTRAL), etc).
- * Додати enum Topping, який також має поле taste (SWEET, SOUR, NEUTRAL).
- * Створити клас FruitSalad, який складається з набору фруктів і певного топінгу (можна використати enum).
- * Реалізувати метод для вибору топінгу, який залежить від смаку інгредієнтів (на свій смак)).
- * Реалізувати метод для перемішування інгредієнтів.*/
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <algorithm>
-#include "Header1.h"
+#include "FruitSaladClass.h"
 
 using namespace std;
 
-
-
-
-
-
 int main()
 {
-    Fruit Yiabluko("YABKO", "RED", NEUTRAL);
+    Fruit yiabluko("YABKO", "RED", NEUTRAL);
     Fruit student("STUDENT", " BLUE ", NEUTRAL);
     Fruit ogirok("CUCUMBER", "GREAN", NEUTRAL);
     FruitSalad salat("Solianka");
-    salat.Add(Yiabluko);
-    salat.Add(student);
-    salat.Add(ogirok);
-    salat.out_salat_ing();
+    salat.AddFruit(yiabluko);
+    salat.AddFruit(student);
+    salat.AddFruit(ogirok);
+    salat.out_salat_ingredients();
     cout << salat.getToping() << endl;
     salat.shufle();
     salat.setTopping();
 
     salat.shufle();
-    salat.out_salat_ing();
+    salat.out_salat_ingredients();
     cout << salat.getToping() << endl;
 
     salat.shufle();
-    salat.out_salat_ing();
+    salat.out_salat_ingredients();
     cout << salat.getToping() << endl;
 
-    string TopingSwap;
+    string toping_swap;
 
     if (salat.getToping() == 0) {
-        TopingSwap = "sweet";
+        toping_swap = "sweet";
 
     }
     if (salat.getToping() == 1) {
-        TopingSwap = "sour";
+        toping_swap = "sour";
     }
 
     if (salat.getToping() == 2) {
-        TopingSwap = "neutral";
+        toping_swap = "neutral";
     }
 
-    /*salat.shufle();
-    salat.out_salat_ing();
-    cout << salat.getToping() << endl;
-    return 0;*/
-    cout << TopingSwap << endl;
+    
+    cout << toping_swap << endl;
     return 0;
 
 }

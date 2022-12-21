@@ -1,53 +1,51 @@
 #include <iostream>
-#include"Header.h" 
+#include"FruitClass.h" 
 #include <vector>
 #include <algorithm>#
 using namespace std;
 
-
-
 class FruitSalad {
 private:
-    string fruitSalad_Name;
-    taste TOPPING;
+    string fruit_salad_name_;
+    Taste TOPPING;
     vector <Fruit> fruit_in_salad;
 public:
     FruitSalad(string fruitSalad_Name) {
-        this->fruitSalad_Name = fruitSalad_Name;
+        this->fruit_salad_name_ = fruitSalad_Name;
     }
 
-    void Add(Fruit fruit)
+    void AddFruit(Fruit fruit)
     {
         fruit_in_salad.push_back(fruit);
     }
 
-    void out_salat_ing() {
+    void out_salat_ingredients() {
 
         for (int i = 0; i < fruit_in_salad.size(); i++) {
-            cout << fruit_in_salad[i].getName() << " ";
+            cout << fruit_in_salad[i].getFruitName() << " ";
         }
         cout << endl;
     }
 
     void setTopping() {
-        int r = 0;
+        int ToppingNamer = 0;
 
         for (int j = 0; j < fruit_in_salad.size(); j++) {
-            r += fruit_in_salad[j].getTaste();
+            ToppingNamer += fruit_in_salad[j].getFruitTaste();
         }
-        r = r / fruit_in_salad.size();
+        ToppingNamer = ToppingNamer / fruit_in_salad.size();
 
-        if (r == 0) {
+        if (ToppingNamer == 0) {
             TOPPING = SWEET;
         }
-        if (r == 1) {
+        if (ToppingNamer == 1) {
             TOPPING = SOUR;
         }
-        if (r == 2) {
+        if (ToppingNamer == 2) {
             TOPPING = NEUTRAL;
         }
     }
-    taste getToping() {
+    Taste getToping() {
         return TOPPING;
     }
     void shufle()
